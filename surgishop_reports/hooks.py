@@ -8,7 +8,6 @@ app_email = "support@surgishop.com"
 app_license = "MIT"
 
 # Fixtures - Export these reports
-# Add your 20 report names here
 fixtures = [
     {
         "doctype": "Report",
@@ -17,16 +16,21 @@ fixtures = [
                 "name",
                 "in",
                 [
-                    "Regional Dashboard",
-                    "Monthly Pacing",
-                    "Director Dashboard",
-                    "Outbound Shipping",
+                    "Customer Item Purchase History",
+                    "Daily EOD Sales Detail",
+                    "Delivery Note Status",
                     "Item Tracking Report",
+                    "Items on Hold",
+                    "Outbound Shipping Status Report",
+                    "Products by Specialty",
+                    "Regional Dashboard",
+                    "Sent Sales Invoices",
+                    "Shipped Batch Expiry Report",
                     "Stock Status",
-                    # Add your other 14 report names below:
-                    # "Report Name 7",
-                    # "Report Name 8",
-                    # etc...
+                    "Surgi General Ledger",
+                    "Surgi Stock Balance",
+                    "Temp Report",
+                    "Warehouse Stock Status",
                 ]
             ]
         ]
