@@ -7,7 +7,7 @@ app_description = "Custom ERPNext reports for sales tracking and performance man
 app_email = "support@surgishop.com"
 app_license = "MIT"
 
-# Fixtures - Export these reports
+# Fixtures - Export these reports and print formats
 fixtures = [
     {
         "doctype": "Report",
@@ -31,6 +31,26 @@ fixtures = [
                     "Surgi Stock Balance",
                     "Temp Report",
                     "Warehouse Stock Status",
+                ]
+            ]
+        ]
+    },
+    {
+        "doctype": "Print Format",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "Surgi Credit Memo",
+                    "Surgi Customer Statement",
+                    "Surgi Delivery Note",
+                    "Surgi Open Items Statement",
+                    "Surgi Packing Slip",
+                    "Surgi Sales Invoice",
+                    "Surgi Sales Order",
+                    "Surgi Sales Quote",
+                    "Surgi Transaction Statement",
                 ]
             ]
         ]
