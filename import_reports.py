@@ -23,6 +23,24 @@ def slugify(text):
     text = re.sub(r'[-\s]+', '_', text)
     return text
 
+def update_existing_report_json(report, base_path='surgishop_reports'):
+    """Update an existing report's JSON file with data from export"""
+    report_name = report['name']
+    module = report.get('module', 'Selling').lower()
+    
+    # Convert to folder name
+    folder_name = slugify(report_name)
+    
+    # Find the JSON file
+    json_path = os.path.join(base_path, module, 'report', folder_name, f'{folder_name}.json')
+    
+    if os.path.exists(json_path):
+        # Update the JSON file with full report data
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, indent=1)
+        return True, json_path
+    return False, json_path
+
 def create_report_structure(reports, base_path='surgishop_reports'):
     """Create folder structure for all reports"""
     
@@ -53,9 +71,9 @@ def create_report_structure(reports, base_path='surgishop_reports'):
                 with open(init_file, 'w') as f:
                     f.write('')
         
-        # Save report JSON
+        # Save report JSON (this will update if file already exists)
         json_path = os.path.join(report_path, f'{folder_name}.json')
-        with open(json_path, 'w') as f:
+        with open(json_path, 'w', encoding='utf-8') as f:
             json.dump(report, f, indent=1)
         
         # If Script Report, create Python file
@@ -138,9 +156,9 @@ def main():
         reports = json.load(f)
     
     print(f'Found {len(reports)} reports\n')
-    print('Creating folder structure...\n')
+    print('Processing reports (creating/updating JSON files)...\n')
     
-    # Create structure
+    # Create/update structure (this will overwrite existing JSON files with full data)
     created, script_reports, query_reports = create_report_structure(reports)
     
     # Summary
@@ -169,5 +187,71 @@ def main():
     print('7. Install app on target Frappe Cloud from GitHub')
     print('\nDone!')
 
+def update_existing_reports():
+    """Update existing report JSON files with data from export file"""
+    export_file = 'surgishop_reports_export.json'
+    
+    if not os.path.exists(export_file):
+        print(f'Error: {export_file} not found!')
+        return
+    
+    # Load reports
+    print(f'Loading reports from {export_file}...\n')
+    try:
+        with open(export_file, 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+            
+        if content == '[JSON_CONTENT_HERE]' or not content:
+            print('Error: Export file appears to be empty or contains placeholder text.')
+            print('Please export your reports first using EXPORT_SCRIPT.js')
+            return
+            
+        reports = json.loads(content)
+    except json.JSONDecodeError as e:
+        print(f'Error: Invalid JSON in export file: {e}')
+        return
+    except Exception as e:
+        print(f'Error reading export file: {e}')
+        return
+    
+    if not isinstance(reports, list):
+        print('Error: Export file should contain a JSON array of reports')
+        return
+    
+    print(f'Found {len(reports)} reports in export file\n')
+    print('Updating existing JSON files...\n')
+    
+    updated = []
+    not_found = []
+    
+    for report in reports:
+        report_name = report.get('name')
+        if not report_name:
+            continue
+        
+        success, json_path = update_existing_report_json(report)
+        if success:
+            updated.append(report_name)
+            print(f'✓ Updated: {report_name}')
+        else:
+            not_found.append(report_name)
+            print(f'⚠ Not found: {report_name} (expected at {json_path})')
+    
+    print('\n' + '='*60)
+    print('UPDATE COMPLETE!')
+    print('='*60)
+    print(f'Successfully updated: {len(updated)}')
+    print(f'Not found: {len(not_found)}')
+    print('='*60)
+    
+    if not_found:
+        print('\nReports not found (they may need to be created first):')
+        for report_name in not_found:
+            print(f'  - {report_name}')
+
 if __name__ == '__main__':
-    main()
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == '--update':
+        update_existing_reports()
+    else:
+        main()
