@@ -1,0 +1,9 @@
+{
+  "name": "Products by Specialty",
+  "report_name": "Products by Specialty",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Stock",
+  "report_type": "Query Report",
+  "docstatus": 0
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Surgi General Ledger",
+  "report_name": "Surgi General Ledger",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Accounts",
+  "report_type": "Query Report",
+  "docstatus": 0
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Warehouse Stock Status",
+  "report_name": "Warehouse Stock Status",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Stock",
+  "report_type": "Query Report",
+  "docstatus": 0
+}

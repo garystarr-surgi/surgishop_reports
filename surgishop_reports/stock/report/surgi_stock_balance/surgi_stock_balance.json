@@ -1,0 +1,9 @@
+{
+  "name": "Surgi Stock Balance",
+  "report_name": "Surgi Stock Balance",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Stock",
+  "report_type": "Custom Report",
+  "docstatus": 0
+}

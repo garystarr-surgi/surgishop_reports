@@ -1,0 +1,9 @@
+{
+  "name": "Outbound Shipping Status Report",
+  "report_name": "Outbound Shipping Status Report",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Stock",
+  "report_type": "Query Report",
+  "docstatus": 0
+}

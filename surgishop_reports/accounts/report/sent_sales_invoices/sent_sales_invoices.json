@@ -1,0 +1,9 @@
+{
+  "name": "Sent Sales Invoices",
+  "report_name": "Sent Sales Invoices",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Accounts",
+  "report_type": "Script Report",
+  "docstatus": 0
+}

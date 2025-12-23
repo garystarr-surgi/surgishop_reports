@@ -1,0 +1,9 @@
+{
+  "name": "Items on Hold",
+  "report_name": "Items on Hold",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Selling",
+  "report_type": "Query Report",
+  "docstatus": 0
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Delivery Note Status",
+  "report_name": "Delivery Note Status",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Stock",
+  "report_type": "Query Report",
+  "docstatus": 0
+}

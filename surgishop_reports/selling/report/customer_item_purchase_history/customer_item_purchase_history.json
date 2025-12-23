@@ -1,0 +1,9 @@
+{
+  "name": "Customer Item Purchase History",
+  "report_name": "Customer Item Purchase History",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Selling",
+  "report_type": "Query Report",
+  "docstatus": 0
+}

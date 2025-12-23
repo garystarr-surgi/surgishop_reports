@@ -1,0 +1,9 @@
+{
+  "name": "Daily EOD Sales Detail",
+  "report_name": "Daily EOD Sales Detail",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Accounts",
+  "report_type": "Query Report",
+  "docstatus": 0
+}

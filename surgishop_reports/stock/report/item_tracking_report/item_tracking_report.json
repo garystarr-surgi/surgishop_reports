@@ -1,0 +1,9 @@
+{
+  "name": "Item Tracking Report",
+  "report_name": "Item Tracking Report",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Stock",
+  "report_type": "Script Report",
+  "docstatus": 0
+}

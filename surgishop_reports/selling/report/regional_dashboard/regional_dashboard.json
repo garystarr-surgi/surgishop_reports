@@ -1,0 +1,9 @@
+{
+  "name": "Regional Dashboard",
+  "report_name": "Regional Dashboard",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Selling",
+  "report_type": "Script Report",
+  "docstatus": 0
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Temp Report",
+  "report_name": "Temp Report",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Selling",
+  "report_type": "Report Builder",
+  "docstatus": 0
+}

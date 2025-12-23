@@ -1,0 +1,9 @@
+{
+  "name": "Shipped Batch Expiry Report",
+  "report_name": "Shipped Batch Expiry Report",
+  "ref_doctype": "Item",
+  "is_standard": "Yes",
+  "module": "Accounts",
+  "report_type": "Query Report",
+  "docstatus": 0
+}
